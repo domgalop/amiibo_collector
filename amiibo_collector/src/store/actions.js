@@ -1,0 +1,6 @@
+export const ADD_TO_COLLECTION = "ADD_TO_COLLECTION";
+export const ADD_TO_WISH_LIST = "ADD_TO_WISH_LIST";
+export const ALL_AMIIBOS = "ALL_AMIIBOS";
+export const DELETE_AMIIBO = "DELETE_AMIIBO";
+export const MOVE_AMIIBO_TO_COL = "MOVE_AMIIBO_TO_COL";
+export const MOVE_AMIIBO_TO_WIS = "MOVE_AMIIBO_TO_WIS";
