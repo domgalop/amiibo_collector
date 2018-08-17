@@ -9,7 +9,7 @@ import Navigation from "./components/Navigation";
 
 import "./css/app.css";
 
-import * as actionTypes from "./store/actions";
+import * as actionTypes from "./store/actions/index";
 import { connect } from "react-redux";
 
 class GameLibrary extends Component {
@@ -20,14 +20,13 @@ class GameLibrary extends Component {
   searchGameHandler() {
     axios
       .get(`http://www.amiiboapi.com/api/amiibo/`)
-      .then(response => this.props.AddAllAmiibos(response.data))
+      .then(response => this.props.AddAllAmiibos(response.data.amiibo))
       .catch(e => {
         console.log("error", e);
       });
   }
 
   render() {
-    console.log(this.props.allAmi);
     return (
       <React.Fragment>
         <header className="Header">
@@ -92,23 +91,19 @@ class GameLibrary extends Component {
 
 const mapStateToProps = state => {
   return {
-    collection: state.addA.collection,
-    wishList: state.addA.wishList,
-    noAmi: state.addA.noAmiibos,
-    allAmi: state.addA.allAmiibos
+    missingAmiibos: state.missingAmiibos,
+    allAmi: state.allAmiibos,
+    wishList: state.wishList,
+    collection: state.collection
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    addtoCollection: key =>
-      dispatch({ type: actionTypes.ADD_TO_COLLECTION, key }),
-    addtoWishList: key => dispatch({ type: actionTypes.ADD_TO_WISH_LIST, key }),
-    moveToCo: key => dispatch({ type: actionTypes.MOVE_AMIIBO_TO_COL, key }),
-    moveToWish: key => dispatch({ type: actionTypes.MOVE_AMIIBO_TO_WIS, key }),
-    deleteAmiibo: key => dispatch({ type: actionTypes.DELETE_AMIIBO, key }),
-    AddAllAmiibos: amiibos =>
-      dispatch({ type: actionTypes.ALL_AMIIBOS, amiibos })
+    addtoCollection: key => dispatch(actionTypes.addToCollection(key)),
+    addtoWishList: key => dispatch(actionTypes.addToWishList(key)),
+    deleteAmiibo: key => dispatch(actionTypes.deleteAmiibo(key)),
+    AddAllAmiibos: amiibos => dispatch(actionTypes.allAmiibos(amiibos))
   };
 };
 

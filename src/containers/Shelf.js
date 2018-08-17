@@ -17,7 +17,6 @@ const Search = props => {
           addCol={() => props.addCol(amiibo.tail)}
           addWish={() => props.addWish(amiibo.tail)}
           addDel={() => props.addDel(amiibo.tail)}
-          move={() => props.addMov(amiibo.tail)}
           location={props.location}
           buttonAddC={"Add to Collection"}
           buttonAddW={"Add to Wish List"}
