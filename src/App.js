@@ -20,7 +20,13 @@ class GameLibrary extends Component {
   searchGameHandler() {
     axios
       .get(`http://www.amiiboapi.com/api/amiibo/`)
-      .then(response => this.props.AddAllAmiibos(response.data.amiibo))
+      .then(response =>
+        this.props.AddAllAmiibos(
+          response.data.amiibo.map(amiibo => {
+            return { ...amiibo, shelf: "MissingAmiibo" };
+          })
+        )
+      )
       .catch(e => {
         console.log("error", e);
       });
@@ -50,10 +56,10 @@ class GameLibrary extends Component {
               path="/shelf"
               render={() => (
                 <Shelf
-                  Amiibos={this.props.allAmi}
+                  amiibos={this.props.allAmi}
                   addCol={this.props.addtoCollection}
                   addWish={this.props.addtoWishList}
-                  location={"allAmiibos"}
+                  shelf={"MissingAmiibo"}
                 />
               )}
             />
@@ -61,10 +67,10 @@ class GameLibrary extends Component {
               path="/collection"
               render={() => (
                 <Shelf
-                  Amiibos={this.props.collection}
+                  amiibos={this.props.allAmi}
                   addDel={this.props.deleteAmiibo}
-                  addMov={this.props.moveToWish}
-                  location={"Collection"}
+                  addWish={this.props.addtoWishList}
+                  shelf={"Collection"}
                 />
               )}
             />
@@ -72,10 +78,10 @@ class GameLibrary extends Component {
               path="/wishlist"
               render={() => (
                 <Shelf
-                  Amiibos={this.props.wishList}
+                  amiibos={this.props.allAmi}
                   addDel={this.props.deleteAmiibo}
-                  addMov={this.props.moveToCo}
-                  location={"WishList"}
+                  addCol={this.props.addtoCollection}
+                  shelf={"WishList"}
                 />
               )}
             />
@@ -91,10 +97,7 @@ class GameLibrary extends Component {
 
 const mapStateToProps = state => {
   return {
-    missingAmiibos: state.missingAmiibos,
-    allAmi: state.allAmiibos,
-    wishList: state.wishList,
-    collection: state.collection
+    allAmi: state.allAmiibos
   };
 };
 

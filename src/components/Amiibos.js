@@ -3,7 +3,7 @@ import React from "react";
 const Amiibos = props => {
   let buttons = "";
   const buttonDel = <button onClick={props.addDel}>{props.buttonAddD}</button>;
-  if (props.location === "allAmiibos") {
+  if (props.location === "MissingAmiibo") {
     buttons = (
       <React.Fragment>
         <button onClick={props.addCol}>{props.buttonAddC}</button>
@@ -14,7 +14,7 @@ const Amiibos = props => {
     buttons = (
       <React.Fragment>
         {buttonDel}
-        <button onClick={props.move}>
+        <button onClick={props.addWish}>
           {props.buttonAddM}
           {props.moveToW}
         </button>
@@ -24,7 +24,7 @@ const Amiibos = props => {
     buttons = (
       <React.Fragment>
         {buttonDel}
-        <button onClick={props.move}>
+        <button onClick={props.addCol}>
           {props.buttonAddM}
           {props.moveToC}
         </button>

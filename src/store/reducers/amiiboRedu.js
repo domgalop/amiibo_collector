@@ -2,43 +2,32 @@ import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../utility.js";
 
 const initialState = {
-  allAmiibos: [],
-  missingAmiibos: [],
-  collection: [],
-  wishList: []
+  allAmiibos: []
+};
+
+const updateAmiibo = (state, action, shelf) => {
+  const findAmiibo = state.allAmiibos.map(amiibo => {
+    if (amiibo.tail === action.key) {
+      return updateObject({ ...amiibo, shelf: shelf });
+    } else {
+      return amiibo;
+    }
+  });
+  return updateObject(state, { allAmiibos: findAmiibo });
 };
 
 const reducer = (state = initialState, action) => {
-  let shelf = "";
   switch (action.type) {
     case actionTypes.ALL_AMIIBOS:
-      return {
-        ...state,
-        allAmiibos: action.amiibos.map(amiibo => {
-          return { ...amiibo, shelf: "Missing Amiibo" };
-        })
-      };
+      return updateObject(state, {
+        allAmiibos: action.amiibos
+      });
     case actionTypes.ADD_TO_COLLECTION:
-      return;
+      return updateAmiibo(state, action, "Collection");
     case actionTypes.ADD_TO_WISH_LIST:
-      return updateObject(state, {
-        ...state,
-        wishList: state.allAmiibos.filter(amiibo => {
-          if (amiibo.tail === action.key) {
-            amiibo.shelf = "Wish List";
-            return { ...amiibo };
-          }
-        })
-      });
+      return updateAmiibo(state, action, "WishList");
     case actionTypes.DELETE_AMIIBO:
-      return updateObject(state, {
-        ...state,
-        missingAmiibos: state.allAmiibos.filter(amiibo => {
-          if (amiibo.tail === action.key) {
-            return { ...amiibo, shelf: shelf };
-          }
-        })
-      });
+      return updateAmiibo(state, action, "MissingAmiibo");
     default:
       return state;
   }
