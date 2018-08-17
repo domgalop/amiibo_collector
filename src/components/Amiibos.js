@@ -1,48 +1,26 @@
 import React from "react";
 
+import Buttons from "../components/Buttons";
 const Amiibos = props => {
-  let buttons = "";
-  const buttonDel = <button onClick={props.addDel}>{props.buttonAddD}</button>;
-  if (props.location === "MissingAmiibo") {
-    buttons = (
-      <React.Fragment>
-        <button onClick={props.addCol}>{props.buttonAddC}</button>
-        <button onClick={props.addWish}>{props.buttonAddW}</button>
-      </React.Fragment>
-    );
-  } else if (props.location === "Collection") {
-    buttons = (
-      <React.Fragment>
-        {buttonDel}
-        <button onClick={props.addWish}>
-          {props.buttonAddM}
-          {props.moveToW}
-        </button>
-      </React.Fragment>
-    );
-  } else if (props.location === "WishList") {
-    buttons = (
-      <React.Fragment>
-        {buttonDel}
-        <button onClick={props.addCol}>
-          {props.buttonAddM}
-          {props.moveToC}
-        </button>
-      </React.Fragment>
-    );
-  }
   return (
     <React.Fragment>
       <article>
         <h2>{props.character}</h2>
-        <img src={props.amiiboImg} alt="" />
+        <img src={props.amiiboImg} alt={props.character} />
         <h3>{props.gameSeries}</h3>
         <p>Amiibo Series: {props.amiiboSeries}</p>
-        <p>
-          Release Date: Europe: {props.releaseDateEu} Japan:{" "}
-          {props.releaseDateNa} US: {props.releaseDateJp}
-        </p>
-        {buttons}
+        <p>Release Dates:</p>
+        <ul>
+          <li>Europe: {props.releaseDateEu}</li>
+          <li>US: {props.releaseDateNa}</li>
+          <li>Japan: {props.releaseDateJp}</li>
+        </ul>
+        <Buttons
+          addCol={props.addCol}
+          addWish={props.addWish}
+          addDel={props.addDel}
+          shelf={props.shelf}
+        />
       </article>
     </React.Fragment>
   );

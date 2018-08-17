@@ -36,11 +36,7 @@ const Shelf = props => {
           addCol={() => props.addCol(amiibo.tail)}
           addWish={() => props.addWish(amiibo.tail)}
           addDel={() => props.addDel(amiibo.tail)}
-          location={props.shelf}
-          buttonAddC={"Add to Collection"}
-          buttonAddW={"Add to Wish List"}
-          buttonAddD={"Delete Amiibo "}
-          buttonAddM={"Move Amiibo to "}
+          shelf={props.shelf}
         />
       ))}
     </React.Fragment>
