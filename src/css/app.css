@@ -20,18 +20,66 @@ body {
   width: 100%;
 }
 
+ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
 a:link {
   text-decoration: none;
 }
+
 a:focus {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
+label,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  border: none;
+}
+
 .wrapper {
   display: flex;
-  flex-flow: row wrap;
   justify-content: center;
 }
+
+main.wrapper {
+  flex-flow: row wrap;
+}
+
+header.wrapper {
+  flex-flow: column;
+}
+
+/*-----------------------------------------------
+*  Search Form 
+-----------------------------------------------*/
+
+.searchFilters {
+  display: flex;
+  flex-flow: row wrap;
+  font-size: 1.1em;
+  justify-content: center;
+  margin: 10px 0;
+}
+
+.searchFilters div {
+  padding: 10px;
+}
+
+select {
+  height: 1.5em;
+  margin-left: 5px;
+  padding-left: 5px;
+  width: 150px;
+}
+
 /*-----------------------------------------------
 *  initialPage Style
 -----------------------------------------------*/
@@ -58,15 +106,57 @@ button {
 }
 
 /*-----------------------------------------------
-*  Nav
+*  Navigation
 -----------------------------------------------*/
 
-.nav ul li {
-  display: inline;
+.nav-logo {
+  height: 100px;
+  object-fit: contain;
 }
 
-.nav ul {
-  list-style-type: none;
+.nav__link li .active {
+  text-decoration: underline white;
+}
+
+.nav__link {
+  text-align: center;
+}
+
+.nav__link li {
+  width: 200px;
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 5px 10px;
+  padding: 16px 20px;
+}
+
+.nav__link li a {
+  color: white;
+  font-weight: 700;
+}
+
+.nav__link li:nth-child(1) {
+  background-color: #ec1b2e;
+}
+
+.nav__link li:nth-child(2) {
+  background-color: #00b2ef;
+}
+
+.nav__link li:nth-child(3) {
+  background-color: #1ba75c;
+}
+
+.nav__link li:nth-child(1):hover {
+  background-color: #99131e;
+}
+
+.nav__link li:nth-child(2):hover {
+  background-color: #5080a0;
+}
+
+.nav__link li:nth-child(3):hover {
+  background-color: #25744a;
 }
 
 /*-----------------------------------------------
@@ -168,6 +258,16 @@ button {
     display: block;
     cursor: pointer;
   }
+
+  .nav__link li {
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .searchFilters {
+    flex-flow: column;
+    align-items: center;
+  }
 }
 
 @media screen and (min-width: 40.0625em) {
@@ -179,6 +279,14 @@ button {
   h2 {
     font-size: 2em;
     line-height: 1.25em;
+  }
+
+  .nav__link li {
+    margin: 0 5px;
+  }
+
+  label {
+    display: block;
   }
 }
 
@@ -196,6 +304,7 @@ button {
   p {
     max-width: 38em;
   }
+
   .wrapper {
     width: 45em;
     margin: 0 auto;
@@ -209,5 +318,8 @@ button {
   }
   .wrapper {
     width: 64em;
+  }
+  label {
+    display: inline;
   }
 }

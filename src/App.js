@@ -8,6 +8,7 @@ import InitialPage from "./components/InitialPage";
 import Navigation from "./components/Navigation";
 
 import "./css/app.css";
+import logo from "./assets/logo_amiibo.png";
 
 import * as actionTypes from "./store/actions/index";
 import { connect } from "react-redux";
@@ -36,13 +37,14 @@ class GameLibrary extends Component {
     return (
       <React.Fragment>
         <header className="wrapper" role="banner">
+          <img src={logo} alt="amiibo" className="nav-logo" />
+          <Navigation />
           <Switch>
             <Route
               path="/(collection|wishlist|missingAmiibos|shelf)"
               render={() => <Search />}
             />
           </Switch>
-          <Navigation />
         </header>
         <main className="wrapper" role="Main">
           <Switch>

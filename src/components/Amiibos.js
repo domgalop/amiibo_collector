@@ -17,18 +17,8 @@ const Amiibos = props => {
           <p>
             <span>Type:</span> {amiibo.type}
           </p>
-          <h4>Release Dates:</h4>
-          <ul>
-            <li>
-              <span>Europe</span>: {amiibo.release.eu}
-            </li>
-            <li>
-              <span>US</span>: {amiibo.release.na}
-            </li>
-            <li>
-              <span>Japan</span>: {amiibo.release.jp}
-            </li>
-          </ul>
+          <h4>US Release Dates</h4>
+          <p>{amiibo.release.na}</p>
           <div
             className="amiibo__Info__container"
             aria-label="Add amiibo to the amiibo collector"

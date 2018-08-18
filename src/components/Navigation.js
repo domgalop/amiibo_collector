@@ -1,19 +1,24 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo_amiibo.png";
+
 const Navigation = props => {
   return (
     <nav className="nav" role="navigation">
-      <img src={logo} alt="amiibo" />
-      <ul>
+      <ul className="nav__link">
         <li>
-          <NavLink to="/collection"> Collection</NavLink>
+          <NavLink to="/shelf" activeClassName="active">
+            All amiibos
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/wishlist"> Wish List </NavLink>
+          <NavLink to="/collection" activeClassName="active">
+            Collection
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/shelf"> All amiibos</NavLink>
+          <NavLink to="/wishlist" activeClassName="active">
+            Wishlist
+          </NavLink>
         </li>
       </ul>
     </nav>

@@ -7,66 +7,60 @@ class Search extends Component {
       <React.Fragment>
         <form role="search">
           <fieldset>
-            <button>Search Amiibo</button>
-            <input
-              type="search"
-              id="search-amiibo"
-              name="search-amiibo"
-              placeholder="Mario"
-              aria-label="Search amiibosthrough site content"
-            />
+            <div className="searchFilters">
+              <div aria-label="Select character">
+                <label for="sauce">Game Character: </label>
+                <select
+                  name="sauce-selector"
+                  id="sauce"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>
+                    --
+                  </option>
+                  <option value="">Tomates Frescos</option>
+                  <option value="">Ranch</option>
+                  <option value="">BBQ</option>
+                  <option value="">Alfredo</option>
+                </select>
+              </div>
+              <div aria-label="Select character">
+                <label for="sauce">Amiibo Series: </label>
+                <select
+                  name="sauce-selector"
+                  id="sauce"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>
+                    --
+                  </option>
+                  <option value="">Tomates Frescos</option>
+                  <option value="">Ranch</option>
+                  <option value="">BBQ</option>
+                  <option value="">Alfredo</option>
+                </select>
+              </div>
+              <div aria-label="Select character">
+                <label for="sauce">Game Series: </label>
+                <select
+                  name="sauce-selector"
+                  id="sauce"
+                  required
+                  aria-required="true"
+                >
+                  <option value="" disabled selected>
+                    --
+                  </option>
+                  <option value="">Tomates Frescos</option>
+                  <option value="">Ranch</option>
+                  <option value="">BBQ</option>
+                  <option value="">Alfredo</option>
+                </select>
+              </div>
+            </div>
           </fieldset>
-          <div>
-            <label for="sauce">Game Character</label>
-            <select
-              name="sauce-selector"
-              id="sauce"
-              required
-              aria-required="true"
-            >
-              <option value="" disabled selected>
-                --
-              </option>
-              <option value="">Tomates Frescos</option>
-              <option value="">Ranch</option>
-              <option value="">BBQ</option>
-              <option value="">Alfredo</option>
-            </select>
-          </div>
-          <div>
-            <label for="sauce">Amiibo Series</label>
-            <select
-              name="sauce-selector"
-              id="sauce"
-              required
-              aria-required="true"
-            >
-              <option value="" disabled selected>
-                --
-              </option>
-              <option value="">Tomates Frescos</option>
-              <option value="">Ranch</option>
-              <option value="">BBQ</option>
-              <option value="">Alfredo</option>
-            </select>
-          </div>
-          <div>
-            <label for="sauce">Game Series</label>
-            <select
-              name="sauce-selector"
-              id="sauce"
-              required
-              aria-required="true"
-            >
-              <option value="" disabled selected>
-                --
-              </option>
-              <option value="">Tomates Frescos</option>
-              <option value="">Ranch</option>
-              <option value="">BBQ</option>
-              <option value="">Alfredo</option>
-            </select>
-          </div>
         </form>
       </React.Fragment>
     );
