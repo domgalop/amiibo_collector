@@ -15,9 +15,7 @@ const NoAmiibos = props => (
         <li>Add amiibos to your Wishlist</li>
         <li>See all the available amiibos</li>
       </ul>
-      <button>
-        <Link to="/shelf">Add a new Amiibo</Link>
-      </button>
+      <Link to="/shelf">Add a new Amiibo</Link>
     </div>
   </React.Fragment>
 );

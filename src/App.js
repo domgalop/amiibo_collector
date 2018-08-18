@@ -41,7 +41,7 @@ class GameLibrary extends Component {
           <Navigation />
           <Switch>
             <Route
-              path="/(collection|wishlist|missingAmiibos|shelf)"
+              path="/(collection|wishlist|shelf)"
               render={() => <Search />}
             />
           </Switch>
