@@ -25,19 +25,12 @@ const Shelf = props => {
     <React.Fragment>
       {filteredAmiibos.map(amiibo => (
         <Amiibos
+          amiibo={amiibo}
           key={amiibo.tail}
-          amiiboSeries={amiibo.amiiboSeries}
-          name={amiibo.name}
-          gameSeries={amiibo.gameSeries}
-          amiiboImg={amiibo.image}
-          type={amiibo.type}
-          releaseDateEu={amiibo.release.eu}
-          releaseDateJp={amiibo.release.jp}
-          releaseDateNa={amiibo.release.na}
-          addCol={() => props.addCol(amiibo.tail)}
-          addWish={() => props.addWish(amiibo.tail)}
-          addDel={() => props.addDel(amiibo.tail)}
           shelf={props.shelf}
+          addCol={() => props.addCol(amiibo.tail)}
+          addDel={() => props.addDel(amiibo.tail)}
+          addWish={() => props.addWish(amiibo.tail)}
         />
       ))}
     </React.Fragment>

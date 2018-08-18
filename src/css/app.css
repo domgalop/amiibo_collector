@@ -27,16 +27,11 @@ a:focus {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
 }
 
-main {
-  background-color: #ebebeb;
-}
-
 .wrapper {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
-
 /*-----------------------------------------------
 *  initialPage Style
 -----------------------------------------------*/
@@ -98,45 +93,60 @@ button {
 
 .amiibo h2 {
   text-align: center;
+  margin: 5px 0;
 }
 
-.amiibo__Info span {
-  font-weight: 700;
-}
-
-.amiibo__Info > ul > li {
-  font-weight: 500;
-  padding: 6px;
+.amiibo ul,
+.amiibo h4 {
+  margin: 2px 0;
 }
 
 .amiibo__img {
   height: 300px;
-  margin: 0 30px;
   object-fit: contain;
   width: 250px;
 }
+
+.amiibo__info span {
+  font-weight: 700;
+}
+
+.amiibo__info > ul > li {
+  font-weight: 500;
+  padding: 6px;
+}
+
 .amiibo__info__container__button {
   border-radius: 10px;
   border: none;
   color: white;
-  margin-top: 6px;
+  margin-top: 10px;
   padding: 16px;
-  width: 92%;
+  width: 100%;
 }
 
-.amiibo__info__container__button:first-child {
+.amiibo__info__container__button--collect {
   background-color: #00b2ef;
 }
 
-.amiibo__info__container__button:last-child {
+.amiibo__info__container__button--wishlist {
   background-color: #1ba75c;
 }
 
-.amiibo__info__container__button:first-child:hover {
+.amiibo__info__container__button--delete {
+  background-color: #f9a51a;
+}
+
+.amiibo__info__container__button--collect:hover {
   background-color: #5080a0;
 }
-.amiibo__info__container__button:last-child:hover {
+
+.amiibo__info__container__button--wishlist:hover {
   background-color: #25744a;
+}
+
+.amiibo__info__container__button--delete:hover {
+  background-color: #da8b0d;
 }
 
 /*-----------------------------------------------
@@ -193,6 +203,10 @@ button {
 }
 
 @media screen and (min-width: 64em) {
+  h2 {
+    font-size: 2em;
+    line-height: 1.25em;
+  }
   .wrapper {
     width: 64em;
   }

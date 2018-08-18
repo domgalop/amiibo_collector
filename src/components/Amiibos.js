@@ -2,30 +2,31 @@ import React from "react";
 
 import Buttons from "../components/Buttons";
 const Amiibos = props => {
+  let amiibo = props.amiibo;
   return (
     <React.Fragment>
       <article className="amiibo" role="article">
-        <h2>{props.name}</h2>
-        <img className="amiibo__img" src={props.amiiboImg} alt="" />
+        <h2>{amiibo.name}</h2>
+        <img className="amiibo__img" src={amiibo.image} alt="" />
 
-        <div className="amiibo__Info" aria-label="Amiibo information">
-          <h3>{props.gameSeries}</h3>
+        <div className="amiibo__info" aria-label="Amiibo information">
+          <h3>{amiibo.gameSeries}</h3>
           <p>
-            <span>Amiibo Series</span>: {props.amiiboSeries}
+            <span>Amiibo Series</span>: {amiibo.amiiboSeries}
           </p>
           <p>
-            <span>Type:</span> {props.type}
+            <span>Type:</span> {amiibo.type}
           </p>
-          <h3>Release Dates:</h3>
+          <h4>Release Dates:</h4>
           <ul>
             <li>
-              <span>Europe</span>: {props.releaseDateEu}
+              <span>Europe</span>: {amiibo.release.eu}
             </li>
             <li>
-              <span>US</span>: {props.releaseDateNa}
+              <span>US</span>: {amiibo.release.na}
             </li>
             <li>
-              <span>Japan</span>: {props.releaseDateJp}
+              <span>Japan</span>: {amiibo.release.jp}
             </li>
           </ul>
           <div
