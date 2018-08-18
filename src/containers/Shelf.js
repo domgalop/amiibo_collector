@@ -30,6 +30,7 @@ const Shelf = props => {
           character={amiibo.character}
           gameSeries={amiibo.gameSeries}
           amiiboImg={amiibo.image}
+          type={amiibo.type}
           releaseDateEu={amiibo.release.eu}
           releaseDateJp={amiibo.release.jp}
           releaseDateNa={amiibo.release.na}

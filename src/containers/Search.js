@@ -5,7 +5,6 @@ class Search extends Component {
   render() {
     return (
       <React.Fragment>
-        <Link to="/">Home</Link>
         <form role="search">
           <fieldset>
             <button>Search Amiibo</button>

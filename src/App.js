@@ -35,9 +35,8 @@ class GameLibrary extends Component {
   render() {
     return (
       <React.Fragment>
-        <header className="Header">
+        <header className="wrapper">
           <Switch>
-            <Route path="/" exact render={() => <h1>Amiibo Collector</h1>} />
             <Route
               path="/(collection|wishlist|missingAmiibos|shelf)"
               render={() => <Search />}
@@ -45,7 +44,7 @@ class GameLibrary extends Component {
           </Switch>
           <Navigation />
         </header>
-        <main>
+        <main className="wrapper">
           <Switch>
             <Route
               path="/"
@@ -87,7 +86,7 @@ class GameLibrary extends Component {
             />
           </Switch>
         </main>
-        <footer>
+        <footer className="wrapper">
           <p>Amiibo Collector 2018</p>
         </footer>
       </React.Fragment>

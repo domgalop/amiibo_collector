@@ -11,24 +11,60 @@ const Buttons = props => {
     case "MissingAmiibo":
       buttons = (
         <React.Fragment>
-          <button onClick={actions.addCol.func}> {actions.addCol.text} </button>
-          <button onClick={actions.addWis.func}> {actions.addWis.text} </button>
+          <button
+            className="amiibo__info__container__button"
+            onClick={actions.addCol.func}
+          >
+            {" "}
+            {actions.addCol.text}{" "}
+          </button>
+          <button
+            onClick={actions.addWis.func}
+            className="amiibo__info__container__button"
+          >
+            {" "}
+            {actions.addWis.text}{" "}
+          </button>
         </React.Fragment>
       );
       break;
     case "Collection":
       buttons = (
         <React.Fragment>
-          <button onClick={actions.delete.func}> {actions.delete.text} </button>
-          <button onClick={actions.addWis.func}> {actions.addWis.text} </button>
+          <button
+            onClick={actions.delete.func}
+            className="amiibo__info__container__button"
+          >
+            {" "}
+            {actions.delete.text}{" "}
+          </button>
+          <button
+            onClick={actions.addWis.func}
+            className="amiibo__info__container__button"
+          >
+            {" "}
+            {actions.addWis.text}{" "}
+          </button>
         </React.Fragment>
       );
       break;
     case "WishList":
       buttons = (
         <React.Fragment>
-          <button onClick={actions.delete.func}> {actions.delete.text} </button>
-          <button onClick={actions.addCol.func}> {actions.addCol.text} </button>
+          <button
+            onClick={actions.delete.func}
+            className="amiibo__info__container__button"
+          >
+            {" "}
+            {actions.delete.text}{" "}
+          </button>
+          <button
+            onClick={actions.addCol.func}
+            className="amiibo__info__container__button"
+          >
+            {" "}
+            {actions.addCol.text}{" "}
+          </button>
         </React.Fragment>
       );
       break;

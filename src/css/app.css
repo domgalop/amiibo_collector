@@ -6,12 +6,46 @@
 *************************************************/
 
 /*-----------------------------------------------
+*  General Style
+-----------------------------------------------*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Comfortaa", cursive;
+  font-size: 16px;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+main {
+  background-color: #ebebeb;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+ul li {
+  display: inline;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/*-----------------------------------------------
 *  initialPage Style
 -----------------------------------------------*/
 
 .initialPage {
   width: 100vw;
-  height: 100vh;
+  height: 75vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,15 +58,70 @@
   border: none;
   border-radius: 50%;
   align-self: flex-end;
-  position: absolute;
-  bottom: 0;
-  right: 0;
 }
 
-a:link {
-  text-decoration: none;
+button {
+  font-family: "Rubik", sans-serif;
 }
 
 /*-----------------------------------------------
-*  Headers 
+*  Nav
+-----------------------------------------------*/
+
+/*-----------------------------------------------
+*  Amiibo Style
+-----------------------------------------------*/
+
+.amiibo {
+  width: 300px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+  padding: 10px;
+}
+
+.amiibo:hover,
+.amiibo:active {
+  box-shadow: 0 0 0 3px#d18b1b;
+}
+
+.amiibo h2 {
+  text-align: center;
+}
+
+.amiibo__Info > p > span {
+  font-weight: 700;
+}
+
+.amiibo__img {
+  margin: 0 30px;
+  text-align: center;
+  width: 250px;
+  height: 300px;
+  object-fit: contain;
+}
+.amiibo__info__container__button {
+  color: white;
+  margin-top: 6px;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
+  padding: 16px;
+}
+
+.amiibo__info__container__button:first-child {
+  background-color: #00b2ef;
+}
+
+.amiibo__info__container__button:last-child {
+  background-color: #00a78d;
+}
+
+.amiibo__info__container__button:hover {
+  background-color: #d18b1b;
+}
+
+/*-----------------------------------------------
+*  Media Queries
 -----------------------------------------------*/
