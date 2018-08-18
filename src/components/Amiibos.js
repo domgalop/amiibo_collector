@@ -4,15 +4,11 @@ import Buttons from "../components/Buttons";
 const Amiibos = props => {
   return (
     <React.Fragment>
-      <article className="amiibo">
-        <h2>{props.character}</h2>
-        <img
-          className="amiibo__img"
-          src={props.amiiboImg}
-          alt={props.character}
-        />
+      <article className="amiibo" role="article">
+        <h2>{props.name}</h2>
+        <img className="amiibo__img" src={props.amiiboImg} alt="" />
 
-        <div className="amiibo__Info">
+        <div className="amiibo__Info" aria-label="Amiibo information">
           <h3>{props.gameSeries}</h3>
           <p>
             <span>Amiibo Series</span>: {props.amiiboSeries}
@@ -22,11 +18,20 @@ const Amiibos = props => {
           </p>
           <h3>Release Dates:</h3>
           <ul>
-            <li>Europe: {props.releaseDateEu}</li>
-            <li>US: {props.releaseDateNa}</li>
-            <li>Japan: {props.releaseDateJp}</li>
+            <li>
+              <span>Europe</span>: {props.releaseDateEu}
+            </li>
+            <li>
+              <span>US</span>: {props.releaseDateNa}
+            </li>
+            <li>
+              <span>Japan</span>: {props.releaseDateJp}
+            </li>
           </ul>
-          <div className="amiibo__Info__container">
+          <div
+            className="amiibo__Info__container"
+            aria-label="Add amiibo to the amiibo collector"
+          >
             <Buttons
               addCol={props.addCol}
               addWish={props.addWish}

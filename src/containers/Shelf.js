@@ -6,6 +6,7 @@ const Shelf = props => {
 
   const filterAmiibo = (amiibos, shelf) =>
     amiibos.filter(amiibo => amiibo.shelf === shelf);
+
   switch (props.shelf) {
     case "MissingAmiibo":
       filteredAmiibos = filterAmiibo(props.amiibos, props.shelf);
@@ -17,7 +18,6 @@ const Shelf = props => {
       filteredAmiibos = filterAmiibo(props.amiibos, props.shelf);
       break;
     default:
-      filteredAmiibos = filterAmiibo(props.amiibos, props.shelf);
       break;
   }
 
@@ -27,7 +27,7 @@ const Shelf = props => {
         <Amiibos
           key={amiibo.tail}
           amiiboSeries={amiibo.amiiboSeries}
-          character={amiibo.character}
+          name={amiibo.name}
           gameSeries={amiibo.gameSeries}
           amiiboImg={amiibo.image}
           type={amiibo.type}

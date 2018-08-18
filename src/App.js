@@ -35,7 +35,7 @@ class GameLibrary extends Component {
   render() {
     return (
       <React.Fragment>
-        <header className="wrapper">
+        <header className="wrapper" role="banner">
           <Switch>
             <Route
               path="/(collection|wishlist|missingAmiibos|shelf)"
@@ -44,7 +44,7 @@ class GameLibrary extends Component {
           </Switch>
           <Navigation />
         </header>
-        <main className="wrapper">
+        <main className="wrapper" role="Main">
           <Switch>
             <Route
               path="/"
@@ -86,8 +86,8 @@ class GameLibrary extends Component {
             />
           </Switch>
         </main>
-        <footer className="wrapper">
-          <p>Amiibo Collector 2018</p>
+        <footer className="wrapper" role="contentinfo">
+          <p>Amiibo Collector 2018 by DomGalop</p>
         </footer>
       </React.Fragment>
     );

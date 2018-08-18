@@ -1,11 +1,10 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "../assets/logo_amiibo.png";
 const Navigation = props => {
   return (
-    <nav className="nav">
+    <nav className="nav" role="navigation">
       <img src={logo} alt="amiibo" />
-
       <ul>
         <li>
           <NavLink to="/collection"> Collection</NavLink>
