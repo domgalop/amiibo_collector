@@ -1,67 +1,97 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
+import * as amiiboTypes from "../utils/amiibos";
 class Search extends Component {
-  state = {};
+  state = {
+    character: "",
+    amiiboseries: "",
+    gameSeries: ""
+  };
+
+  characterHandler = event => {
+    this.setState({ character: event.target.value });
+  };
+
+  amiiboseriesHandler = event => {
+    this.setState({ amiiboseries: event.target.value });
+  };
+
+  gameSeriesHandler = event => {
+    this.setState({ gameSeries: event.target.value });
+  };
+
   render() {
+    console.log(this.state);
     return (
       <React.Fragment>
         <form role="search">
           <fieldset>
             <div className="searchFilters">
               <div aria-label="Select character">
-                <label for="sauce">Game Character: </label>
+                <label htmlFor="sauce">Game Character: </label>
                 <select
-                  name="sauce-selector"
-                  id="sauce"
-                  required
-                  aria-required="true"
+                  name="game-character"
+                  id="game-character"
+                  onChange={this.characterHandler}
                 >
-                  <option value="" disabled selected>
+                  <option value="" selected>
                     --
                   </option>
-                  <option value="">Tomates Frescos</option>
-                  <option value="">Ranch</option>
-                  <option value="">BBQ</option>
-                  <option value="">Alfredo</option>
+                  {amiiboTypes.characters.map(char => (
+                    <option key={char} value={char}>
+                      {char}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div aria-label="Select character">
-                <label for="sauce">Amiibo Series: </label>
+                <label htmlFor="sauce">Amiibo Series: </label>
                 <select
-                  name="sauce-selector"
-                  id="sauce"
-                  required
-                  aria-required="true"
+                  name="amiibo-series"
+                  id="amiibo-series"
+                  onChange={this.amiiboseriesHandler}
                 >
-                  <option value="" disabled selected>
+                  <option value="" selected>
                     --
                   </option>
-                  <option value="">Tomates Frescos</option>
-                  <option value="">Ranch</option>
-                  <option value="">BBQ</option>
-                  <option value="">Alfredo</option>
+                  {amiiboTypes.amiiboSeries.map(series => (
+                    <option key={series} value={series}>
+                      {series}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div aria-label="Select character">
-                <label for="sauce">Game Series: </label>
+                <label htmlFor="sauce">Game Series: </label>
                 <select
-                  name="sauce-selector"
-                  id="sauce"
-                  required
-                  aria-required="true"
+                  name="game-series"
+                  id="game-series"
+                  onChange={this.gameSeriesHandler}
                 >
-                  <option value="" disabled selected>
+                  <option value="" selected>
                     --
                   </option>
-                  <option value="">Tomates Frescos</option>
-                  <option value="">Ranch</option>
-                  <option value="">BBQ</option>
-                  <option value="">Alfredo</option>
+                  {amiiboTypes.gameSeries.map(series => (
+                    <option key={series} value={series}>
+                      {series}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>
           </fieldset>
         </form>
+        <button
+          onClick={() =>
+            this.props.searchParams(
+              this.state.amiiboseries,
+              this.state.character,
+              this.state.gameSeries
+            )
+          }
+        >
+          Search Amiibo
+        </button>
       </React.Fragment>
     );
   }

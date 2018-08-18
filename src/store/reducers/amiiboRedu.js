@@ -2,7 +2,10 @@ import * as actionTypes from "../actions/actionTypes";
 import { updateObject } from "../utility.js";
 
 const initialState = {
-  allAmiibos: []
+  allAmiibos: [],
+  gameSeries: "",
+  amiiboSeries: "",
+  character: ""
 };
 
 const updateAmiibo = (state, action, shelf) => {
@@ -28,6 +31,13 @@ const reducer = (state = initialState, action) => {
       return updateAmiibo(state, action, "WishList");
     case actionTypes.DELETE_AMIIBO:
       return updateAmiibo(state, action, "MissingAmiibo");
+    case actionTypes.SEARCH_PARAMS:
+      return {
+        ...state,
+        gameSeries: action.amiiboSeries,
+        amiiboSeries: action.character,
+        character: action.gameSeries
+      };
     default:
       return state;
   }

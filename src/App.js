@@ -13,12 +13,12 @@ import logo from "./assets/logo_amiibo.png";
 import * as actionTypes from "./store/actions/index";
 import { connect } from "react-redux";
 
-class GameLibrary extends Component {
+class App extends Component {
   componentDidMount() {
-    this.searchGameHandler();
+    this.searchAmiibo();
   }
 
-  searchGameHandler() {
+  searchAmiibo() {
     axios
       .get(`http://www.amiiboapi.com/api/amiibo/`)
       .then(response =>
@@ -34,6 +34,9 @@ class GameLibrary extends Component {
   }
 
   render() {
+    console.log(this.props.character);
+    console.log(this.props.gameSeries);
+    console.log(this.props.searchParams);
     return (
       <React.Fragment>
         <header className="wrapper" role="banner">
@@ -42,7 +45,7 @@ class GameLibrary extends Component {
           <Switch>
             <Route
               path="/(collection|wishlist|shelf)"
-              render={() => <Search />}
+              render={() => <Search searchParams={this.props.searchParams} />}
             />
           </Switch>
         </header>
@@ -98,7 +101,10 @@ class GameLibrary extends Component {
 
 const mapStateToProps = state => {
   return {
-    allAmi: state.allAmiibos
+    allAmi: state.allAmiibos,
+    gameSeries: state.gameSeries,
+    amiiboSeries: state.amiiboSeries,
+    character: state.character
   };
 };
 
@@ -107,7 +113,9 @@ const mapDispatchToProps = dispatch => {
     addtoCollection: key => dispatch(actionTypes.addToCollection(key)),
     addtoWishList: key => dispatch(actionTypes.addToWishList(key)),
     deleteAmiibo: key => dispatch(actionTypes.deleteAmiibo(key)),
-    AddAllAmiibos: amiibos => dispatch(actionTypes.allAmiibos(amiibos))
+    AddAllAmiibos: amiibos => dispatch(actionTypes.allAmiibos(amiibos)),
+    searchParams: (amiiboSeries, character, gameSeries) =>
+      dispatch(actionTypes.searchParams(amiiboSeries, character, gameSeries))
   };
 };
 
@@ -115,5 +123,5 @@ export default withRouter(
   connect(
     mapStateToProps,
     mapDispatchToProps
-  )(GameLibrary)
+  )(App)
 );

@@ -27,3 +27,12 @@ export const deleteAmiibo = key => {
     key: key
   };
 };
+
+export const searchParams = (amiiboSeries, character, gameSeries) => {
+  return {
+    type: actionTypes.SEARCH_PARAMS,
+    amiiboSeries: amiiboSeries,
+    character: character,
+    gameSeries: gameSeries
+  };
+};

@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-
+/** https://docs.google.com/presentation/d/1EhrMVpGrXsl71ebcJuPYsiWiDC1eLsTIz-ntMk2GQ2s/edit?usp=sharing */
 import { createStore, applyMiddleware, compose } from "redux";
 import amiiboReducer from "./store/reducers/amiiboRedu";
 import registerServiceWorker from "./registerServiceWorker";

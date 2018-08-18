@@ -2,5 +2,6 @@ export {
   addToCollection,
   addToWishList,
   allAmiibos,
-  deleteAmiibo
+  deleteAmiibo,
+  searchParams
 } from "./addAmiibo";
