@@ -21,7 +21,6 @@ class Search extends Component {
   };
 
   render() {
-    console.log(this.state);
     return (
       <React.Fragment>
         <form role="search">
@@ -34,7 +33,7 @@ class Search extends Component {
                   id="game-character"
                   onChange={this.characterHandler}
                 >
-                  <option value="" selected>
+                  <option defaultValue="" selected>
                     --
                   </option>
                   {amiiboTypes.characters.map(char => (
@@ -51,7 +50,7 @@ class Search extends Component {
                   id="amiibo-series"
                   onChange={this.amiiboseriesHandler}
                 >
-                  <option value="" selected>
+                  <option defaultValue="" selected>
                     --
                   </option>
                   {amiiboTypes.amiiboSeries.map(series => (
@@ -68,7 +67,7 @@ class Search extends Component {
                   id="game-series"
                   onChange={this.gameSeriesHandler}
                 >
-                  <option value="" selected>
+                  <option defaultValue="" selected>
                     --
                   </option>
                   {amiiboTypes.gameSeries.map(series => (
@@ -82,6 +81,7 @@ class Search extends Component {
           </fieldset>
         </form>
         <button
+          className="searchButton"
           onClick={() =>
             this.props.searchParams(
               this.state.amiiboseries,

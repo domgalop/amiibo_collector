@@ -34,9 +34,39 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.props.character);
-    console.log(this.props.gameSeries);
-    console.log(this.props.searchParams);
+    let searchedAmiibos = [];
+    searchedAmiibos = this.props.allAmi.filter(amiibo => {
+      let character = amiibo.character === this.props.character;
+      let gameSeries = amiibo.gameSeries === this.props.gameSeries;
+      let amiiboSeries = amiibo.amiiboSeries === this.props.amiiboSeries;
+
+      let characterAndGSeries = character && gameSeries;
+      let characterAndASeries = character && amiiboSeries;
+      let gSeriesAndaSeries = gameSeries && amiiboSeries;
+
+      if (character && gameSeries && amiiboSeries) {
+        return amiibo;
+      }
+
+      if (characterAndGSeries && !this.props.amiiboSeries) {
+        return amiibo;
+      } else if (characterAndASeries && !this.props.gameSeries) {
+        return amiibo;
+      } else if (gSeriesAndaSeries && !this.props.character) {
+        return amiibo;
+      }
+
+      if (character && (!this.props.gameSeries && !this.props.amiiboSeries)) {
+        return amiibo;
+      }
+      if (gameSeries && (!this.props.character && !this.props.amiiboSeries)) {
+        return amiibo;
+      }
+      if (amiiboSeries && (!this.props.character && !this.props.gameSeries)) {
+        return amiibo;
+      }
+    });
+
     return (
       <React.Fragment>
         <header className="wrapper" role="banner">
@@ -60,7 +90,7 @@ class App extends Component {
               path="/shelf"
               render={() => (
                 <Shelf
-                  amiibos={this.props.allAmi}
+                  amiibos={searchedAmiibos}
                   addCol={this.props.addtoCollection}
                   addWish={this.props.addtoWishList}
                   shelf={"MissingAmiibo"}
@@ -71,7 +101,7 @@ class App extends Component {
               path="/collection"
               render={() => (
                 <Shelf
-                  amiibos={this.props.allAmi}
+                  amiibos={searchedAmiibos}
                   addDel={this.props.deleteAmiibo}
                   addWish={this.props.addtoWishList}
                   shelf={"Collection"}
@@ -82,7 +112,7 @@ class App extends Component {
               path="/wishlist"
               render={() => (
                 <Shelf
-                  amiibos={this.props.allAmi}
+                  amiibos={searchedAmiibos}
                   addDel={this.props.deleteAmiibo}
                   addCol={this.props.addtoCollection}
                   shelf={"WishList"}

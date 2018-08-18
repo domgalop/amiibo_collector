@@ -34,9 +34,9 @@ const reducer = (state = initialState, action) => {
     case actionTypes.SEARCH_PARAMS:
       return {
         ...state,
-        gameSeries: action.amiiboSeries,
-        amiiboSeries: action.character,
-        character: action.gameSeries
+        gameSeries: action.gameSeries,
+        amiiboSeries: action.amiiboSeries,
+        character: action.character
       };
     default:
       return state;
